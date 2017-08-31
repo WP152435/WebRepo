@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <style>
+      .yellowBg {
+        background-color: yellow;
+      }
+      .blueBg {
+        background-color: blue;
+      }
+      .whiteBg {
+        background-color: white;
+      }
+      .redBorder {
+        border: solid 2px red;
+      }
+    </style>
+
+    <script>
+      function changeColor(color) {
+        var container = document.getElementById('container')
+        container.setAttribute("class", color + "Bg")
+      }
+      function changeText(e) {
+        e.value = e.value.toUpperCase();
+      }
+      function over(e) {
+        e.setAttribute("class", "redBorder")
+      }
+      function out(e) {
+        e.removeAttribute("class")
+      }
+    </script>
+  </head>
+  <body onload="alert('Web page loaded')">
+    <div id="container">
+      <input type="radio" name="color" value="yellow" onclick="changeColor('yellow')">노란색
+      <input type="radio" name="color" value="blue" onclick="changeColor('blue')">파란색
+      <input type="radio" name="color" value="white" onclick="changeColor('white')">원래대로
+    </div>
+    <br>
+    <input type="text" id="text" onchange="changeText(this)">
+    <p id="p" onmouseover="over(this)" onmouseout="out(this)">마우스를 위에 올려놓으세요</p>
+  </body>
+</html>

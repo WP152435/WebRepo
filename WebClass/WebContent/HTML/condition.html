@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script>
+      function check() {
+        var age = parseInt(document.getElementById('age').value)
+        var weight = parseInt(document.getElementById('weight').value)
+        var min_weight
+
+        if(document.getElementById('male').checked) {
+          min_weight = 50
+        }
+        else {
+          min_weight = 45
+        }
+
+        if(16 <= age && age <= 69) {
+          if(min_weight <= weight) {
+            document.getElementById('result').innerHTML = "헌혈 가능합니다."
+          }
+          else {
+            document.getElementById('result').innerHTML = "체중 미달"
+          }
+        }
+        else {
+          document.getElementById('result').innerHTML = "연령 부적합"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    나이 <input type="text" id="age"> 세 <br>
+    성별 남자<input type="radio" name="gender" id="male" checked> 여자 <input type="radio" name="gender" id="female"> <br>
+    몸무게 <input type="text" id="weight"> kg <br>
+    <input type="button" onclick="check()" value="헌혈 조건 체크"> <br>
+    <p id="result"></p>
+   </body>
+</html>

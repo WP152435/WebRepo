@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div id="div1">
+      <p id="p1">원래 있던 문단</p>
+    </div>
+
+    <script>
+      var newp = document.createElement("p")
+      var newtext = document.createTextNode("새로 만든 문단")
+      newp.appendChild(newtext)
+
+      var div1 = document.getElementById('div1')
+      div1.appendChild(newp)
+
+      var oldp = document.getElementById('p1')
+      div1.removeChild(oldp)
+    </script>
+
+  </body>
+</html>

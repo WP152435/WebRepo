@@ -4,27 +4,18 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>집</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <script>
-      function menu_over(e) {
-        e.setAttribute("class", "nav-item active")
-      }
-      function menu_out(e) {
-        e.setAttribute("class", "nav-item")
-      }
-    </script>
 
-    <style>
-      div.container {
-        padding-top: 30px;
-      }
-    </style>
+    <link rel="stylesheet" href="../../Css/blog.css" type="text/css">
+    <link rel="stylesheet" href="../../Css/dream.css" type="text/css">
+    <script src="../../Js/blog_menu.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">집가고싶어</a>
+      <a class="navbar-brand" href="main.html">집가고싶어</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -32,13 +23,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item" onmouseover="menu_over(this)" onmouseout="menu_out(this)">
-            <a class="nav-link" href="a.html">메뉴1 <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="introduce.html">소개 <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item" onmouseover="menu_over(this)" onmouseout="menu_out(this)">
-            <a class="nav-link" href="bookmark.html">메뉴2</a>
+            <a class="nav-link" href="dream.html">꿈</a>
           </li>
           <li class="nav-item" onmouseover="menu_over(this)" onmouseout="menu_out(this)">
-            <a class="nav-link" href="check.html">메뉴3</a>
+            <a class="nav-link" href="hobby.html">취향</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" id="login-form">
@@ -46,12 +37,13 @@
           <input class="form-control mr-sm-2" type="password" placeholder="password" aria-label="password" id="pass" required>
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
         </form>
+        <button class="btn btn-outline-primary my-2 my-sm-0" id="sign-up">Sign up</button>
       </div>
     </nav>
+
     <div class="container">
-      <h1>Hello, world!</h1>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
-      </p>
+      <h1>내가 좋아할 수 있는 게임을 만들며 사는 것</h1>
+      <h5>이게 제 꿈이에요</h5>
     </div>
 
     <div class="modal" id="my-modal">
@@ -72,36 +64,59 @@
         </div>
       </div>
     </div>
+
+    <div class="modal" id="sign-up-modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">회원가입</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form id="sign-up-form">
+            <div class="modal-body">
+              <div class="form-check">
+                <label class="form-control-label">학년</label> <br>
+                <input id="1st" type="radio" name="grade" value="1" required>1학년
+                <input id="2nd" type="radio" name="grade" value="2" checked>2학년
+                <input id="3rd" type="radio" name="grade" value="3">3학년
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">반</label>
+                <select class="form-control mr-sm-2" name="class" id="class" required>
+                  <option value=''>--선택--</option>
+                  <option value="1">1반</option>
+                  <option value="2">2반</option>
+                  <option value="3">3반</option>
+                  <option value="4">4반</option>
+                  <option value="5">5반</option>
+                  <option value="6">6반</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">번호</label>
+                <input class="form-control mr-sm-2" id="number" type="text" placeholder="00" required>
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">이름</label>
+                <input class="form-control mr-sm-2" id="name" type="text" placeholder="홍길동" required>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">가입</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
-    <script>
-      $(document).ready(function() {
-        $('#login-form').submit(function(event) {
-          // sumit 방지
-          event.preventDefault()
-          var id = $('#id').val()
-          var pwd = $('#pass').val()
-          console.log(id, pwd)
-
-          //post방식 전송
-          $.post("http://httpbin.org/post",
-            { 'id': id, 'pwd': pwd },
-            function(data) {
-              //alert(data.form.id + "님 로그인하셨습니다.")
-              //alert(data.form.pwd)
-              var my_modal = $('#my-modal')
-              my_modal.modal()
-              my_modal.find('.modal-body').text(data.form.id + "님 로그인하셨습니다.")
-            }
-          )
-        })
-      })
-      $(function() {
-      })
-    </script>
+    <script src="../../Js/blog_modal.js"></script>
   </body>
 </html>

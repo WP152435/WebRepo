@@ -1,0 +1,21 @@
+div.container {
+  padding-top: 30px;
+}
+h1.title {
+  margin-top: 190px;
+  text-align: center;
+  font-size: 60px;
+}
+p.title {
+  text-align: center;
+  font-size: 25px;
+}
+ #login-form button {
+   margin-right: 0.5rem;
+ }
+ #login-form {
+   display: inline;
+ }
+ #sign-up-form label {
+   font-weight: bold;
+ }

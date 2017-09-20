@@ -82,26 +82,25 @@
       $(document).ready(function() {
         $('#login-form').submit(function(event) {
           // sumit 방지
-          event.preventDefault()
-          var id = $('#id').val()
-          var pwd = $('#pass').val()
-          console.log(id, pwd)
+          event.preventDefault();
+          var id = $('#id').val();
+          var pwd = $('#pass').val();
+          console.log(id, pwd);
 
           //post방식 전송
-          $.post("http://httpbin.org/post",
+          $.post("/WebClass/login",
             { 'id': id, 'pwd': pwd },
             function(data) {
-              //alert(data.form.id + "님 로그인하셨습니다.")
+            	
+              //alert(data.id + "님 로그인하셨습니다.")
               //alert(data.form.pwd)
-              var my_modal = $('#my-modal')
-              my_modal.modal()
-              my_modal.find('.modal-body').text(data.form.id + "님 로그인하셨습니다.")
+              var my_modal = $('#my-modal');
+              my_modal.modal();
+              my_modal.find('.modal-body').text(data.id + "님 로그인하셨습니다.");
             }
-          )
-        })
-      })
-      $(function() {
-      })
+          );
+        });
+      });
     </script>
   </body>
 </html>

@@ -25,9 +25,11 @@
 					sum += i;
 			
 				result = "1 ~ " + number +"까지의 합은 " + sum + "입니다.";
+			
+		%>
+				<h1>1~<%= number %>까지의 합은 <%= sum %>입니다.</h1>
+		<%
 			}
 		%>
-		
-		<h1><%= result %></h1>
 	</body>
 </html>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.text.SimpleDateFormat, java.util.Date" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,7 +17,6 @@
 		
 		<% 
 			String num = request.getParameter("num");
-			String result = "";
 			if(num != null)
 			{
 				int number = Integer.parseInt(num);
@@ -24,12 +24,13 @@
 				for(int i=1; i<=number; i++)
 					sum += i;
 			
-				result = "1 ~ " + number +"까지의 합은 " + sum + "입니다.";
-			
 		%>
 				<h1>1~<%= number %>까지의 합은 <%= sum %>입니다.</h1>
 		<%
 			}
+			//자바 현재 시각 구하기
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a");
 		%>
+		<p>현재 시각: <%= sdf.format(new Date()) %></p>
 	</body>
 </html>

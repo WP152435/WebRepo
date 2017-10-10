@@ -19,7 +19,7 @@
   </div>
 </div>
     
-<script>
+<!-- <script>
   $(document).ready(function() {
     $('#login-form').submit(function(event) {
       // sumit 방지
@@ -42,4 +42,4 @@
       );
     });
   });
-</script>
+</script>-->

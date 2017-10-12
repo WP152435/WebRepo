@@ -1,6 +1,7 @@
 package org.dimigo.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.JsonObject;
 
 /**
  * Servlet implementation class SignUpServlet
@@ -42,7 +45,7 @@ public class SignUpServlet extends HttpServlet {
 		String nickname = request.getParameter("nickname");
 		
 		System.out.println("id: " + id + " pass: " + pwd + " name: " + name + " nick: " + nickname);
-		
+		response.setContentType("application/json;charset=utf-8");
 		boolean result = false;
 		if(result)
 		{
@@ -50,9 +53,10 @@ public class SignUpServlet extends HttpServlet {
 		}
 		else
 		{
-			request.setAttribute("error", "signup_failed");
-			RequestDispatcher rd = request.getRequestDispatcher("/JSP/signup.jsp");
-			rd.forward(request, response);
+			PrintWriter out = response.getWriter();
+			JsonObject obj = new JsonObject();
+			obj.addProperty("error", "signup_failed");
+			out.write(obj.toString());
 		}
 	}
 

@@ -37,31 +37,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
 <script>
-	<%-- 회원 가입이 실패한 경우 처리 추가 --%>
-	<%
-	  if("signup_failed".equals(request.getAttribute("error")))
-	  {
-		  System.out.println("signup failed");
-	%>
-		var myModal = $('#my-modal');
-		myModal.find('.modal-title').text('Sign Up Error');
-		myModal.find('.modal-body').text('회원 가입 시 오류가 발생하였습니다.');
-		myModal.modal();
-		
-		$('#inputEmail').val("<%=request.getParameter("id")%>")
-		$('#inputPassword').val("<%=request.getParameter("pwd")%>")
-		$('#inputName').val("<%=request.getParameter("name")%>")
-		$('#inputNickName').val("<%=request.getParameter("nickname")%>")
-		
-	<%
-	  }
-	%>
-</script>
-
-<script>
 $(document).ready(function() {
 	  $('#signupForm').submit(function(event) {
-
+		event.preventDefault()
 	    var id = $('#inputEmail').val()
 	    var pwd = $('#inputPassword').val()
 	    var name = $('#inputName').val()
@@ -72,7 +50,16 @@ $(document).ready(function() {
 	    $.post("/WebClass/signup",
 	      { 'id': id, 'pwd': pwd, 'name' : name, 'nickname' : nickname },
 	      function(data) {
-	        
+	    	if(data.error == 'signup_failed') {
+	    		console.log('failed')
+	    		var myModal = $('#my-modal');
+	    		myModal.find('.modal-title').text('Sign Up Error');
+	    		myModal.find('.modal-body').text('회원 가입 시 오류가 발생하였습니다.');
+	    		myModal.modal();
+	    	}
+	    	else {
+	    		location.href = '/WebClass/login'
+	    	}
 	      }
 	    )
 	  })

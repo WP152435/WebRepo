@@ -7,17 +7,25 @@ $(document).ready(function() {
     console.log(id, pwd)
 
     //post방식 전송
-    $.post("http://httpbin.org/post",
+    $.post("/WebClass/bloglogin",
       { 'id': id, 'pwd': pwd },
       function(data) {
-        //alert(data.form.id + "님 로그인하셨습니다.")
-        //alert(data.form.pwd)
-        var my_modal = $('#my-modal')
-        my_modal.modal()
-        my_modal.find('.modal-title').text('로그인 결과')
-        my_modal.find('.modal-body').text(data.form.id + "님 로그인되었습니다.")
+        console.log(data.msg)
+        if(data.msg == 'success') {
+        	location.href = location.href
+        }
+        else if(data.msg == 'fail') {
+        	var my_modal = $('#my-modal')
+        	my_modal.find('.modal-title').text('로그인 실패')
+        	my_modal.find('.modal-body').text('ID가 올바르지 않습니다.')
+            my_modal.modal()
+        }
       }
     )
+  })
+  $('#logout').submit(function() {
+	  event.preventDefault()
+	  $.post("/WebClass/bloglogout", {}, function(data){ location.href = location.href })
   })
   $('#sign-up').click(function() {
     $('#sign-up-modal').modal()

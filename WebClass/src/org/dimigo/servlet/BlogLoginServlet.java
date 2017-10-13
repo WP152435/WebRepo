@@ -44,7 +44,7 @@ public class BlogLoginServlet extends HttpServlet {
 		if(CORRECTID.equals(id))
 		{
 			HttpSession session = request.getSession();
-			session.setAttribute("user", new UserVO(id, "홍길동", "의적"));
+			session.setAttribute("user", new UserVO(id, "한재희", "GreenBlue"));
 			msg = "success";
 		}
 		else

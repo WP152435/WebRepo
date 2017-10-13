@@ -19,6 +19,7 @@ $(document).ready(function() {
         	my_modal.find('.modal-title').text('로그인 실패')
         	my_modal.find('.modal-body').text('ID가 올바르지 않습니다.')
             my_modal.modal()
+            $('#pass').val('')
         }
       }
     )

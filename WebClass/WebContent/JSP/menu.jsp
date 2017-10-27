@@ -13,7 +13,7 @@
         <a class="nav-link" href="/WebClass/session">메뉴1 <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item" onmouseover="menu_over(this)" onmouseout="menu_out(this)">
-        <a class="nav-link" href="bookmark.html">메뉴2</a>
+        <a class="nav-link" href="/WebClass/list">메뉴2</a>
       </li>
       <li class="nav-item" onmouseover="menu_over(this)" onmouseout="menu_out(this)">
         <a class="nav-link" href="check.html">메뉴3</a>
@@ -37,7 +37,7 @@
 	    <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
 	      <li class="nav-item dropdown">
 	        <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	    	  <%=user.getNickname() %>님
+	    	  ${sessionScope.user.nickname}님
 	        </a>
 	        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
 	          <form action="/WebClass/logout" method="post">

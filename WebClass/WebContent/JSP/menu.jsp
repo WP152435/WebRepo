@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="org.dimigo.vo.UserVO" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">집가고싶어</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,20 +20,13 @@
         <a class="nav-link" href="check.html">메뉴3</a>
       </li>
     </ul>
-    <%
-      UserVO user = (UserVO)session.getAttribute("user");
-      if(user == null)
-      {
-    %>
+    <c:if test="${empty sessionScope.user}">
         <%-- 세션이 없는 경우 --%>
     	<a class="text-bold text-white" style="text-decoration: none" href="/WebClass/login">Sign in</a>
     	<span class="text-bold text-white">&nbsp; or &nbsp;</span>
    	 	<a class="text-bold text-white" style="text-decoration: none" href="/WebClass/signup">Sign up</a>
-    <%
-      }
-      else
-      {
-   	%>
+    </c:if>
+    <c:if test="${!empty sessionScope.user}">
         <%-- 세션이 있는 경우 --%>
 	    <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
 	      <li class="nav-item dropdown">
@@ -49,8 +43,6 @@
 	        </div>
 	      </li>
 	    </ul>
-	<%
-      }
-	%>
+	  </c:if>
   </div>
 </nav>
